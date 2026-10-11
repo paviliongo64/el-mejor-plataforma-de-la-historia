@@ -24,3 +24,4 @@ Para editar este repositorio en MakeCode.
 
 * for PXT/arcade
 <script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+esto es la base a partir de la que voy a hacer mi juego metroidvania

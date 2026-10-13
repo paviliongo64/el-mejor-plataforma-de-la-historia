@@ -1,15 +1,3 @@
-controller.right.onEvent(ControllerButtonEvent.Released, function () {
-    mySprite.vx = 0
-})
-controller.left.onEvent(ControllerButtonEvent.Released, function () {
-    mySprite.vx = 0
-})
-controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vx = 100
-})
-controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-    mySprite.vx = -100
-})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (tiempo_en_el_suelo == 0) {
         tiempo_en_el_suelo = 1
@@ -23,9 +11,6 @@ scene.onHitWall(SpriteKind.Player, function (sprite3, location) {
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
         tiempo_en_el_suelo = 0
     }
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.jewels.jewel4, function (sprite2, location3) {
-    game.gameOver(true)
 })
 let mySprite: Sprite = null
 let tiempo_en_el_suelo = 0
@@ -178,5 +163,14 @@ tiles.setCurrentTilemap(tilemap`nivel1`)
 forever(function () {
     if (tiempo_en_el_suelo == 0) {
         mySprite.vy = 125
+    }
+})
+forever(function () {
+    if (controller.left.isPressed()) {
+        mySprite.vx = -100
+    } else if (controller.right.isPressed()) {
+        mySprite.vx = 100
+    } else {
+        mySprite.vx = 0
     }
 })
